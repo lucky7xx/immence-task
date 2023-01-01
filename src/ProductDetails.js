@@ -1,14 +1,20 @@
 import React from "react";
 
 const ProductDetails = (props) => {
-  console.log(props.post);
+  console.log(props.product);
 
   return (
     <>
-      <div key={props.post.id} className="products">
-        <h3 className="productTitle">ID: {props.post.id}</h3>
-        <p className="productPrice">Title: {props.post.title}$</p>
-        <p className="productCategory">Body: {props.post.body}</p>
+      <div key={props.product.id} className="products">
+        <h3 className="productTitle">Title: {props.product.title}</h3>
+        <p className="productPrice">Price: {props.product.price}$</p>
+        <p className="productCategory">Category: {props.product.category}</p>
+        <p className="productDesc">{props.product.description}</p>
+        <img
+          src={props.product.image}
+          alt={props.product.title}
+          className="productImage"
+        />
         <button className="detailButton" onClick={props.onBackClick}>
           Back To List
         </button>
@@ -18,3 +24,4 @@ const ProductDetails = (props) => {
 };
 
 export default ProductDetails;
+
