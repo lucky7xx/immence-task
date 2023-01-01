@@ -7,7 +7,7 @@ const ProductListing = () => {
   const [productId, setProductId] = useState();
 
   useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/posts")
+    fetch("https://fakestoreapi.com/products/")
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, []);
@@ -19,7 +19,7 @@ const ProductListing = () => {
   if (productId > 0) {
     return (
       <ProductDetails
-        post={products.find((post) => post.id === productId)}
+        product={products.find((product) => product.id === productId)}
         onBackClick={handleBackClick}
       />
     );
@@ -34,15 +34,15 @@ const ProductListing = () => {
 
         {products.map((product) => (
           <div key={product.id} className="products">
-            <h3 className="productTitle">ID: {product.id}</h3>
-            <p className="productPrice">Title: {product.title}$</p>
-            <p className="productCategory">Body: {product.body}</p>
-            {/* <p className="productDesc">{product.description}</p>
+            <h3 className="productTitle">Title: {product.title}</h3>
+            <p className="productPrice">Price: {product.price}$</p>
+            <p className="productCategory">Category: {product.category}</p>
+            <p className="productDesc">{product.description}</p>
             <img
               src={product.image}
               alt={product.title}
               className="productImage"
-            /> */}
+            />
             <button
               onClick={() => setProductId(product.id)}
               className="detailButton"
@@ -57,3 +57,4 @@ const ProductListing = () => {
 };
 
 export default ProductListing;
+//fakestore api started working again so i updated again
